@@ -3,12 +3,12 @@ package com.example.controlasistencia.view
 import android.app.Activity
 import android.widget.*
 import com.example.controlasistencia.R
-import com.example.controlasistencia.controller.CAlumno
+import com.example.controlasistencia.controller.CAlumnoController
 import com.example.controlasistencia.model.MAlumno
 
-class VAlumno(private val activity: Activity) {
+class VAlumnoView(private val activity: Activity) {
 
-    private val controller = CAlumno(activity, this)
+    private val controller = CAlumnoController(activity, this)
     private val txtRegistro: EditText = activity.findViewById(R.id.txtRegistroAlumno)
     private val txtApellidoP: EditText = activity.findViewById(R.id.txtApellidoPAlumno)
     private val txtApellidoM: EditText = activity.findViewById(R.id.txtApellidoMAlumno)

@@ -2,11 +2,11 @@ package com.example.controlasistencia.controller
 
 import android.content.Context
 import com.example.controlasistencia.model.MAlumno
-import com.example.controlasistencia.view.VAlumno
+import com.example.controlasistencia.view.VAlumnoView
 
-class CAlumno(
+class CAlumnoController(
     private val context: Context,
-    private val view: VAlumno
+    private val view: VAlumnoView
 ) {
 
     fun cargarAlumnos() {

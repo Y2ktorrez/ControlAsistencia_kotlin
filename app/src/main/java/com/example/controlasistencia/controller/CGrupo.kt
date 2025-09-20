@@ -3,11 +3,11 @@ package com.example.controlasistencia.controller
 import android.content.Context
 import com.example.controlasistencia.model.MGrupo
 import com.example.controlasistencia.model.MMateria
-import com.example.controlasistencia.view.VGrupo
+import com.example.controlasistencia.view.VGrupoView
 
-class CGrupo(
+class CGrupoController(
     private val context: Context,
-    private val view: VGrupo
+    private val view: VGrupoView
 ) {
     
     fun cargarGrupos() {

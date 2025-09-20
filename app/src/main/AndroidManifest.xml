@@ -13,15 +13,15 @@
             android:supportsRtl="true"
             android:theme="@style/Theme.ControlAsistencia">
 
-        <activity android:name=".MateriaActivity" />
-        <activity android:name=".GrupoActivity" />
+        <activity android:name=".AMateria" />
+        <activity android:name=".AGrupo" />
         <activity android:name=".MainActivitySimple" android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".AlumnoActivity" />
+        <activity android:name=".AAlumno" />
     </application>
 
 

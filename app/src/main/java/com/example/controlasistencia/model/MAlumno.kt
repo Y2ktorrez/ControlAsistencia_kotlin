@@ -2,7 +2,7 @@ package com.example.controlasistencia.model
 
 import android.content.ContentValues
 import android.content.Context
-import com.example.controlasistencia.DBHelper
+import com.example.controlasistencia.Database
 
 data class MAlumno(
     var registro: String = "",
@@ -12,7 +12,7 @@ data class MAlumno(
 ) {
     // insertar(): boolean
     fun insertar(context: Context): Boolean {
-        val dbh = DBHelper(context)
+        val dbh = Database(context)
         val db = dbh.writableDatabase
         val values = ContentValues().apply {
             put("registro", registro)
@@ -20,7 +20,7 @@ data class MAlumno(
             put("apellidom", apellidom)
             put("nombre", nombre)
         }
-        val newRowId = db.insert(DBHelper.Companion.TABLE_ESTUDIANTE, null, values)
+        val newRowId = db.insert(Database.Companion.TABLE_ESTUDIANTE, null, values)
         db.close()
         return newRowId != -1L
     }
@@ -28,10 +28,10 @@ data class MAlumno(
     // obtener(registro: String): MAlumno
     companion object {
         fun obtener(context: Context, registro: String): MAlumno? {
-            val dbh = DBHelper(context)
+            val dbh = Database(context)
             val db = dbh.readableDatabase
             val cursor = db.query(
-                DBHelper.Companion.TABLE_ESTUDIANTE,
+                Database.Companion.TABLE_ESTUDIANTE,
                 arrayOf("registro", "apellidop", "apellidom", "nombre"),
                 "registro = ?",
                 arrayOf(registro),
@@ -54,9 +54,9 @@ data class MAlumno(
         // listar(): List<MAlumno>
         fun listar(context: Context): List<MAlumno> {
             val list = mutableListOf<MAlumno>()
-            val dbh = DBHelper(context)
+            val dbh = Database(context)
             val db = dbh.readableDatabase
-            val cursor = db.query(DBHelper.Companion.TABLE_ESTUDIANTE, arrayOf("registro", "apellidop", "apellidom", "nombre"), null, null, null, null, "registro ASC")
+            val cursor = db.query(Database.Companion.TABLE_ESTUDIANTE, arrayOf("registro", "apellidop", "apellidom", "nombre"), null, null, null, null, "registro ASC")
             if (cursor.moveToFirst()) {
                 do {
                     val alumno = MAlumno(
@@ -76,23 +76,23 @@ data class MAlumno(
 
     // actualizar(): boolean
     fun actualizar(context: Context): Boolean {
-        val dbh = DBHelper(context)
+        val dbh = Database(context)
         val db = dbh.writableDatabase
         val values = ContentValues().apply {
             put("apellidop", apellidop)
             put("apellidom", apellidom)
             put("nombre", nombre)
         }
-        val rows = db.update(DBHelper.Companion.TABLE_ESTUDIANTE, values, "registro = ?", arrayOf(registro))
+        val rows = db.update(Database.Companion.TABLE_ESTUDIANTE, values, "registro = ?", arrayOf(registro))
         db.close()
         return rows > 0
     }
 
     // eliminar(): boolean
     fun eliminar(context: Context): Boolean {
-        val dbh = DBHelper(context)
+        val dbh = Database(context)
         val db = dbh.writableDatabase
-        val rows = db.delete(DBHelper.Companion.TABLE_ESTUDIANTE, "registro = ?", arrayOf(registro))
+        val rows = db.delete(Database.Companion.TABLE_ESTUDIANTE, "registro = ?", arrayOf(registro))
         db.close()
         return rows > 0
     }

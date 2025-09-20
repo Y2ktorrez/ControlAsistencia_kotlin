@@ -2,14 +2,14 @@ package com.example.controlasistencia
 
 import android.app.Activity
 import android.os.Bundle
-import com.example.controlasistencia.view.VMateriaView
+import com.example.controlasistencia.view.VGrupoView
 
-class MateriaActivity : Activity() {
+class AGrupo : Activity() {
     
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_materia)
-        
-        VMateriaView(this)
+        setContentView(R.layout.activity_grupo)
+
+        VGrupoView(this)
     }
 }

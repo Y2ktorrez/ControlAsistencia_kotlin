@@ -3,13 +3,13 @@ package com.example.controlasistencia.view
 import android.app.Activity
 import android.widget.*
 import com.example.controlasistencia.R
-import com.example.controlasistencia.controller.CGrupo
+import com.example.controlasistencia.controller.CGrupoController
 import com.example.controlasistencia.model.MGrupo
 import com.example.controlasistencia.model.MMateria
 
-class VGrupo(private val activity: Activity) {
+class VGrupoView(private val activity: Activity) {
     
-    private val controller = CGrupo(activity, this)
+    private val controller = CGrupoController(activity, this)
     private val txtNombre: EditText = activity.findViewById(R.id.txtNombreGrupo)
     private val slcMateria: Spinner = activity.findViewById(R.id.slcMateria)
     private val btnGuardar: Button = activity.findViewById(R.id.btnGuardar)

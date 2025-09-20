@@ -4,7 +4,6 @@ import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
-import com.example.controlasistencia.MateriaActivity
 
 class MainActivitySimple : Activity() {
 
@@ -17,15 +16,15 @@ class MainActivitySimple : Activity() {
         val btnAlumnos: Button = findViewById(R.id.btnAlumnos)
         
         btnMaterias.setOnClickListener {
-            startActivity(Intent(this, MateriaActivity::class.java))
+            startActivity(Intent(this, AMateria::class.java))
         }
         
         btnGrupos.setOnClickListener {
-            startActivity(Intent(this, GrupoActivity::class.java))
+            startActivity(Intent(this, AGrupo::class.java))
         }
 
         btnAlumnos.setOnClickListener {
-            startActivity(Intent(this, AlumnoActivity::class.java))
+            startActivity(Intent(this, AAlumno::class.java))
         }
     }
 }
