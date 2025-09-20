@@ -15,7 +15,7 @@
 
         <activity android:name=".AMateria" />
         <activity android:name=".AGrupo" />
-        <activity android:name=".MainActivitySimple" android:exported="true">
+        <activity android:name=".MainActivity" android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
