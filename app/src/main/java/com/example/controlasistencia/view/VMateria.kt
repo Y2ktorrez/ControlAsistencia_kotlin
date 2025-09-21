@@ -11,7 +11,6 @@ class VMateriaView(private val activity: Activity) {
     private val controller = CMateriaController(activity, this)
     private val txtNombre: EditText = activity.findViewById(R.id.txtNombreMateria)
     private val btnGuardar: Button = activity.findViewById(R.id.btnGuardar)
-    private val btnAgregar: Button = activity.findViewById(R.id.btnAgregar)
     private val btnEliminar: Button = activity.findViewById(R.id.btnEliminar)
     private val lvMaterias: ListView = activity.findViewById(R.id.lvMaterias)
     
@@ -25,9 +24,8 @@ class VMateriaView(private val activity: Activity) {
     
     private fun setupListeners() {
         btnGuardar.setOnClickListener { guardarMateria() }
-        btnAgregar.setOnClickListener { controller.mostrarCrear() }
         btnEliminar.setOnClickListener { eliminarMateria() }
-        
+
         lvMaterias.setOnItemClickListener { _, _, position, _ ->
             val materiaTexto = adapter?.getItem(position) ?: ""
             val id = materiaTexto.split(" - ")[0].toInt()

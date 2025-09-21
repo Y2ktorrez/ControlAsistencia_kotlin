@@ -14,9 +14,6 @@ class CAlumnoController(
         view.mostrarAlumnos(alumnos)
     }
 
-    fun mostrarCrear() {
-        view.mostrarFormularioCrear()
-    }
 
     fun mostrarEditar(alumno: MAlumno) {
         view.mostrarFormularioEditar(alumno)

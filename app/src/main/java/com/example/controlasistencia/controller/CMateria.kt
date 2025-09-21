@@ -14,10 +14,6 @@ class CMateriaController(
         view.mostrarMaterias(materias)
     }
     
-    fun mostrarCrear() {
-        view.mostrarFormularioCrear()
-    }
-    
     fun mostrarEditar(materia: MMateria) {
         view.mostrarFormularioEditar(materia)
     }

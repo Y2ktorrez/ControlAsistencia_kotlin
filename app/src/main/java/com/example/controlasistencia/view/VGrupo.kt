@@ -13,7 +13,6 @@ class VGrupoView(private val activity: Activity) {
     private val txtNombre: EditText = activity.findViewById(R.id.txtNombreGrupo)
     private val slcMateria: Spinner = activity.findViewById(R.id.slcMateria)
     private val btnGuardar: Button = activity.findViewById(R.id.btnGuardar)
-    private val btnAgregar: Button = activity.findViewById(R.id.btnAgregar)
     private val btnEliminar: Button = activity.findViewById(R.id.btnEliminar)
     private val lvGrupos: ListView = activity.findViewById(R.id.lvGrupos)
     
@@ -28,7 +27,6 @@ class VGrupoView(private val activity: Activity) {
     
     private fun setupListeners() {
         btnGuardar.setOnClickListener { guardarGrupo() }
-        btnAgregar.setOnClickListener { controller.mostrarCrear() }
         btnEliminar.setOnClickListener { eliminarGrupo() }
         
         lvGrupos.setOnItemClickListener { _, _, position, _ ->

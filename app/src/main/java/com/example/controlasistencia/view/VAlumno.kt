@@ -14,7 +14,6 @@ class VAlumnoView(private val activity: Activity) {
     private val txtApellidoM: EditText = activity.findViewById(R.id.txtApellidoMAlumno)
     private val txtNombre: EditText = activity.findViewById(R.id.txtNombreAlumno)
     private val btnGuardar: Button = activity.findViewById(R.id.btnGuardarAlumno)
-    private val btnAgregar: Button = activity.findViewById(R.id.btnAgregarAlumno)
     private val btnEliminar: Button = activity.findViewById(R.id.btnEliminarAlumno)
     private val lvAlumnos: ListView = activity.findViewById(R.id.lvAlumnos)
 
@@ -28,7 +27,6 @@ class VAlumnoView(private val activity: Activity) {
 
     private fun setupListeners() {
         btnGuardar.setOnClickListener { guardarAlumno() }
-        btnAgregar.setOnClickListener { controller.mostrarCrear() }
         btnEliminar.setOnClickListener { eliminarAlumno() }
 
         lvAlumnos.setOnItemClickListener { _, _, position, _ ->

@@ -20,11 +20,6 @@ class CGrupoController(
         view.mostrarMaterias(materias)
     }
     
-    fun mostrarCrear() {
-        cargarMaterias()
-        view.mostrarFormularioCrear()
-    }
-    
     fun mostrarEditar(grupo: MGrupo) {
         cargarMaterias()
         view.mostrarFormularioEditar(grupo)
