@@ -9,10 +9,10 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Sistema de Gestión"
+        android:layout_marginBottom="32dp"
+        android:text="Sistema de Asistencia"
         android:textSize="28sp"
-        android:textStyle="bold"
-        android:layout_marginBottom="32dp" />
+        android:textStyle="bold" />
 
     <Button
         android:id="@+id/btnMaterias"
@@ -27,9 +27,9 @@
         android:id="@+id/btnGrupos"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:padding="16dp"
         android:text="Gestionar Grupos"
-        android:textSize="18sp"
-        android:padding="16dp" />
+        android:textSize="18sp" />
 
     <Button
         android:id="@+id/btnAlumnos"
