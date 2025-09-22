@@ -49,4 +49,13 @@
         android:padding="16dp"
         android:layout_marginTop="16dp" />
 
+    <Button
+        android:id="@+id/btnAsistencias"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Gestionar Asistencias"
+        android:textSize="18sp"
+        android:padding="16dp"
+        android:layout_marginTop="16dp" />
+
 </LinearLayout>

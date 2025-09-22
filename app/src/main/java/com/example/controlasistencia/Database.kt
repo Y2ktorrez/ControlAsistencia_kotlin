@@ -7,11 +7,12 @@ import android.database.sqlite.SQLiteOpenHelper
 class Database(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME, null, DATABASE_VERSION) {
     companion object {
         const val DATABASE_NAME = "appdb.db"
-        const val DATABASE_VERSION = 3
+        const val DATABASE_VERSION = 4
         const val TABLE_MATERIA = "materia"
         const val TABLE_GRUPO = "grupo"
         const val TABLE_ESTUDIANTE = "estudiante"
         const val TABLE_CLASE = "clase"
+        const val TABLE_ASISTENCIA = "asistencia"
 
         // SQL provided by user - must be exact
         const val SQL_CREATE_MATERIA = """
@@ -48,6 +49,19 @@ class Database(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME, null
                 estado VARCHAR(50) NOT NULL,
                 id_grupo INT,
                 FOREIGN KEY (id_grupo) REFERENCES grupo(id)
+            );
+        """
+
+        const val SQL_CREATE_ASISTENCIA = """
+            CREATE TABLE asistencia (
+                id INT PRIMARY KEY AUTO_INCREMENT,
+                fecha_hora_registro DATETIME NOT NULL,
+                wifi_verificado BOOLEAN NOT NULL DEFAULT FALSE,
+                qr_verificado BOOLEAN NOT NULL DEFAULT FALSE,
+                id_clase INT,
+                id_estudiante INT,
+                FOREIGN KEY (id_clase) REFERENCES clase(id),
+                FOREIGN KEY (id_estudiante) REFERENCES estudiante(registro)
             );
         """
     }
@@ -92,13 +106,28 @@ class Database(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME, null
             );
         """
 
+        val sqliteCreateAsistencia = """
+            CREATE TABLE $TABLE_ASISTENCIA (
+                id INTEGER PRIMARY KEY AUTOINCREMENT,
+                fecha_hora_registro TEXT NOT NULL,
+                wifi_verificado INTEGER NOT NULL DEFAULT 0,
+                qr_verificado INTEGER NOT NULL DEFAULT 0,
+                id_clase INTEGER,
+                id_estudiante TEXT,
+                FOREIGN KEY (id_clase) REFERENCES $TABLE_CLASE(id),
+                FOREIGN KEY (id_estudiante) REFERENCES $TABLE_ESTUDIANTE(registro)
+            );
+        """
+
         db.execSQL(sqliteCreateMateria)
         db.execSQL(sqliteCreateGrupo)
         db.execSQL(sqliteCreateEstudiante)
         db.execSQL(sqliteCreateClase)
+        db.execSQL(sqliteCreateAsistencia)
     }
 
     override fun onUpgrade(db: SQLiteDatabase, oldVersion: Int, newVersion: Int) {
+        db.execSQL("DROP TABLE IF EXISTS $TABLE_ASISTENCIA")
         db.execSQL("DROP TABLE IF EXISTS $TABLE_CLASE")
         db.execSQL("DROP TABLE IF EXISTS $TABLE_ESTUDIANTE")
         db.execSQL("DROP TABLE IF EXISTS $TABLE_GRUPO")

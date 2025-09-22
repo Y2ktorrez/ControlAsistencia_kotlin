@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
+    
+    <!-- Color de fondo del spinner -->
+    <solid android:color="#FFFFFF" />
+    
+    <!-- Borde del spinner -->
+    <stroke
+        android:width="1dp"
+        android:color="#E0E0E0" />
+    
+    <!-- Esquinas redondeadas -->
+    <corners android:radius="8dp" />
+    
+    <!-- Padding interno -->
+    <padding
+        android:left="12dp"
+        android:top="8dp"
+        android:right="12dp"
+        android:bottom="8dp" />
+        
+</shape>

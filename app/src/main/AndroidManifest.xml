@@ -23,6 +23,7 @@
         </activity>
         <activity android:name=".AAlumno" />
         <activity android:name=".AClase" />
+        <activity android:name=".AAsistencia" />
     </application>
 
 
