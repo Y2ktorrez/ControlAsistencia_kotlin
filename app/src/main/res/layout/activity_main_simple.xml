@@ -1,61 +1,152 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:padding="32dp"
-    android:gravity="center">
+    android:background="#F0F8FF">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="32dp"
-        android:text="Sistema de Asistencia"
-        android:textSize="28sp"
-        android:textStyle="bold" />
-
-    <Button
-        android:id="@+id/btnMaterias"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Gestionar Materias"
-        android:textSize="18sp"
-        android:layout_marginBottom="16dp"
-        android:padding="16dp" />
+        android:orientation="vertical"
+        android:padding="24dp"
+        android:gravity="center">
 
-    <Button
-        android:id="@+id/btnGrupos"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="16dp"
-        android:text="Gestionar Grupos"
-        android:textSize="18sp" />
+        <!-- Título Principal -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:text="SISTEMA DE ASISTENCIA"
+            android:textSize="28sp"
+            android:textStyle="bold"
+            android:textColor="#2C3E50"
+            android:gravity="center" />
 
-    <Button
-        android:id="@+id/btnAlumnos"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Gestionar Alumnos"
-        android:textSize="18sp"
-        android:padding="16dp"
-        android:layout_marginTop="16dp" />
+        <!-- Credit -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="32dp"
+            android:text="by: Andres Torrez Vaca"
+            android:textSize="12sp"
+            android:textColor="#7F8C8D"
+            android:gravity="center" />
 
-    <Button
-        android:id="@+id/btnClases"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Gestionar Clases"
-        android:textSize="18sp"
-        android:padding="16dp"
-        android:layout_marginTop="16dp" />
+        <!-- Card Materias -->
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            app:cardCornerRadius="12dp"
+            app:cardElevation="4dp"
+            app:cardBackgroundColor="#E8F5E8">
 
-    <Button
-        android:id="@+id/btnAsistencias"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Gestionar Asistencias"
-        android:textSize="18sp"
-        android:padding="16dp"
-        android:layout_marginTop="16dp" />
+            <Button
+                android:id="@+id/btnMaterias"
+                android:layout_width="match_parent"
+                android:layout_height="64dp"
+                android:text="📚 GESTIONAR MATERIAS"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:textColor="#FFFFFF"
+                android:backgroundTint="#4CAF50"
+                app:cornerRadius="12dp"
+                android:layout_margin="8dp" />
 
-</LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- Card Grupos -->
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            app:cardCornerRadius="12dp"
+            app:cardElevation="4dp"
+            app:cardBackgroundColor="#FFF8E1">
+
+            <Button
+                android:id="@+id/btnGrupos"
+                android:layout_width="match_parent"
+                android:layout_height="64dp"
+                android:text="👥 GESTIONAR GRUPOS"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:textColor="#FFFFFF"
+                android:backgroundTint="#FF9800"
+                app:cornerRadius="12dp"
+                android:layout_margin="8dp" />
+
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- Card Alumnos -->
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            app:cardCornerRadius="12dp"
+            app:cardElevation="4dp"
+            app:cardBackgroundColor="#E3F2FD">
+
+            <Button
+                android:id="@+id/btnAlumnos"
+                android:layout_width="match_parent"
+                android:layout_height="64dp"
+                android:text="🎓 GESTIONAR ALUMNOS"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:textColor="#FFFFFF"
+                android:backgroundTint="#2196F3"
+                app:cornerRadius="12dp"
+                android:layout_margin="8dp" />
+
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- Card Clases -->
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            app:cardCornerRadius="12dp"
+            app:cardElevation="4dp"
+            app:cardBackgroundColor="#F3E5F5">
+
+            <Button
+                android:id="@+id/btnClases"
+                android:layout_width="match_parent"
+                android:layout_height="64dp"
+                android:text="🏫 GESTIONAR CLASES"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:textColor="#FFFFFF"
+                android:backgroundTint="#9C27B0"
+                app:cornerRadius="12dp"
+                android:layout_margin="8dp" />
+
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- Card Asistencias -->
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="12dp"
+            app:cardElevation="4dp"
+            app:cardBackgroundColor="#FFEBEE">
+
+            <Button
+                android:id="@+id/btnAsistencias"
+                android:layout_width="match_parent"
+                android:layout_height="64dp"
+                android:text="📋 GESTIONAR ASISTENCIAS"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:textColor="#FFFFFF"
+                android:backgroundTint="#F44336"
+                app:cornerRadius="12dp"
+                android:layout_margin="8dp" />
+
+        </com.google.android.material.card.MaterialCardView>
+
+    </LinearLayout>
+
+</ScrollView>
