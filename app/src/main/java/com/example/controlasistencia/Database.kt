@@ -7,10 +7,11 @@ import android.database.sqlite.SQLiteOpenHelper
 class Database(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME, null, DATABASE_VERSION) {
     companion object {
         const val DATABASE_NAME = "appdb.db"
-        const val DATABASE_VERSION = 2
+        const val DATABASE_VERSION = 3
         const val TABLE_MATERIA = "materia"
         const val TABLE_GRUPO = "grupo"
         const val TABLE_ESTUDIANTE = "estudiante"
+        const val TABLE_CLASE = "clase"
 
         // SQL provided by user - must be exact
         const val SQL_CREATE_MATERIA = """
@@ -35,6 +36,18 @@ class Database(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME, null
                 apellidop VARCHAR(100) NOT NULL,
                 apellidom VARCHAR(100) NOT NULL,
                 nombre VARCHAR(100) NOT NULL
+            );
+        """
+
+        const val SQL_CREATE_CLASE = """
+            CREATE TABLE clase (
+                id INT PRIMARY KEY AUTO_INCREMENT,
+                fecha DATE NOT NULL,
+                hora_inicio TIME NOT NULL,
+                hora_fin TIME NOT NULL,
+                estado VARCHAR(50) NOT NULL,
+                id_grupo INT,
+                FOREIGN KEY (id_grupo) REFERENCES grupo(id)
             );
         """
     }
@@ -67,12 +80,26 @@ class Database(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME, null
             );
         """
 
+        val sqliteCreateClase = """
+            CREATE TABLE $TABLE_CLASE (
+                id INTEGER PRIMARY KEY AUTOINCREMENT,
+                fecha TEXT NOT NULL,
+                hora_inicio TEXT NOT NULL,
+                hora_fin TEXT NOT NULL,
+                estado TEXT NOT NULL,
+                id_grupo INTEGER,
+                FOREIGN KEY (id_grupo) REFERENCES $TABLE_GRUPO(id)
+            );
+        """
+
         db.execSQL(sqliteCreateMateria)
         db.execSQL(sqliteCreateGrupo)
         db.execSQL(sqliteCreateEstudiante)
+        db.execSQL(sqliteCreateClase)
     }
 
     override fun onUpgrade(db: SQLiteDatabase, oldVersion: Int, newVersion: Int) {
+        db.execSQL("DROP TABLE IF EXISTS $TABLE_CLASE")
         db.execSQL("DROP TABLE IF EXISTS $TABLE_ESTUDIANTE")
         db.execSQL("DROP TABLE IF EXISTS $TABLE_GRUPO")
         db.execSQL("DROP TABLE IF EXISTS $TABLE_MATERIA")

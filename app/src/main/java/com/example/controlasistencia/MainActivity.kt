@@ -14,6 +14,7 @@ class MainActivity : Activity() {
         val btnMaterias: Button = findViewById(R.id.btnMaterias)
         val btnGrupos: Button = findViewById(R.id.btnGrupos)
         val btnAlumnos: Button = findViewById(R.id.btnAlumnos)
+        val btnClases: Button = findViewById(R.id.btnClases)
         
         btnMaterias.setOnClickListener {
             startActivity(Intent(this, AMateria::class.java))
@@ -25,6 +26,10 @@ class MainActivity : Activity() {
 
         btnAlumnos.setOnClickListener {
             startActivity(Intent(this, AAlumno::class.java))
+        }
+
+        btnClases.setOnClickListener {
+            startActivity(Intent(this, AClase::class.java))
         }
     }
 }
