@@ -12,7 +12,7 @@ data class MClase(
     var estado: String = "",
     var id_grupo: Int = 0
 ) {
-    // insertar(): boolean
+
     fun insertar(context: Context): Boolean {
         val dbh = Database(context)
         val db = dbh.writableDatabase
@@ -28,7 +28,6 @@ data class MClase(
         return newRowId != -1L
     }
 
-    // obtener(id: int): MClase
     companion object {
         fun obtener(context: Context, id: Int): MClase? {
             val dbh = Database(context)
@@ -56,7 +55,6 @@ data class MClase(
             return clase
         }
 
-        // listar(): List<MClase>
         fun listar(context: Context): List<MClase> {
             val list = mutableListOf<MClase>()
             val dbh = Database(context)
@@ -84,7 +82,6 @@ data class MClase(
             return list
         }
 
-        // obtenerGrupo(): String - Obtiene el nombre del grupo asociado
         fun obtenerGrupo(context: Context, idGrupo: Int): String {
             val dbh = Database(context)
             val db = dbh.readableDatabase
@@ -105,7 +102,6 @@ data class MClase(
         }
     }
 
-    // actualizar(): boolean
     fun actualizar(context: Context): Boolean {
         val dbh = Database(context)
         val db = dbh.writableDatabase
@@ -121,7 +117,6 @@ data class MClase(
         return rows > 0
     }
 
-    // eliminar(): boolean
     fun eliminar(context: Context): Boolean {
         val dbh = Database(context)
         val db = dbh.writableDatabase

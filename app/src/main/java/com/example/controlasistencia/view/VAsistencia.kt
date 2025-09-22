@@ -12,8 +12,6 @@ import com.example.controlasistencia.model.MAlumno
 class VAsistencia(private val context: Context) {
 
     private val controller = CAsistencia(context)
-    
-    // Componentes de la vista según el diagrama
     lateinit var txtWifi: TextView
     lateinit var imgQR: ImageView
     lateinit var btnMostrarQR: Button
@@ -22,11 +20,9 @@ class VAsistencia(private val context: Context) {
     lateinit var btnRegistrarAsistencia: Button
     lateinit var btnListarAsistencias: Button
 
-    // Datos para los spinners
     private var clasesActivas = listOf<MClase>()
     private var estudiantes = listOf<MAlumno>()
 
-    // inicializar(activity): void
     fun inicializar(activity: android.app.Activity) {
         txtWifi = activity.findViewById(R.id.txtWifi)
         imgQR = activity.findViewById(R.id.imgQR)
@@ -41,7 +37,6 @@ class VAsistencia(private val context: Context) {
         cargarClasesActivas()
     }
 
-    // configurarEventos(): void
     private fun configurarEventos() {
         btnMostrarQR.setOnClickListener {
             mostrarQR()
@@ -65,7 +60,6 @@ class VAsistencia(private val context: Context) {
         }
     }
 
-    // verificarWifi(): void
     private fun verificarWifi() {
         val wifiVerificado = controller.verificarWifi()
         txtWifi.text = if (wifiVerificado) "WiFi: Verificado ✓" else "WiFi: No verificado ✗"
@@ -77,7 +71,6 @@ class VAsistencia(private val context: Context) {
         )
     }
 
-    // cargarClasesActivas(): void
     private fun cargarClasesActivas() {
         clasesActivas = controller.obtenerClasesActivas()
         val opcionesClase = clasesActivas.map { clase ->
@@ -95,7 +88,6 @@ class VAsistencia(private val context: Context) {
         }
     }
 
-    // cargarEstudiantesGrupo(idGrupo: int): void
     private fun cargarEstudiantesGrupo(idGrupo: Int) {
         estudiantes = controller.obtenerEstudiantesGrupo(idGrupo)
         val opcionesEstudiante = estudiantes.map { estudiante ->
@@ -112,7 +104,6 @@ class VAsistencia(private val context: Context) {
         }
     }
 
-    // mostrarQR(): void - Implementación del método del diagrama
     private fun mostrarQR() {
         if (clasesActivas.isEmpty()) {
             Toast.makeText(context, "No hay clases activas para generar QR", Toast.LENGTH_SHORT).show()
@@ -135,7 +126,6 @@ class VAsistencia(private val context: Context) {
         }
     }
 
-    // registrarAsistencia(): void
     private fun registrarAsistencia() {
         if (clasesActivas.isEmpty() || estudiantes.isEmpty()) {
             Toast.makeText(context, "Seleccione una clase válida y un estudiante", Toast.LENGTH_SHORT).show()
@@ -151,7 +141,6 @@ class VAsistencia(private val context: Context) {
             val claseSeleccionada = clasesActivas[posicionClase]
             val estudianteSeleccionado = estudiantes[posicionEstudiante]
 
-            // Verificar si ya existe asistencia
             if (controller.verificarAsistenciaExistente(claseSeleccionada.id, estudianteSeleccionado.registro)) {
                 Toast.makeText(context, "Ya existe asistencia registrada para este estudiante en esta clase", Toast.LENGTH_LONG).show()
                 return
@@ -173,7 +162,6 @@ class VAsistencia(private val context: Context) {
         }
     }
 
-    // listarAsistencias(): void
     private fun listarAsistencias() {
         val asistencias = controller.listarAsistencias()
         if (asistencias.isEmpty()) {
@@ -200,14 +188,12 @@ class VAsistencia(private val context: Context) {
         mostrarDialogo("Lista de Asistencias", listaTexto.toString())
     }
 
-    // limpiarFormulario(): void
     private fun limpiarFormulario() {
         imgQR.visibility = android.view.View.GONE
         cargarClasesActivas()
         verificarWifi()
     }
 
-    // mostrarDialogo(titulo: String, mensaje: String): void
     private fun mostrarDialogo(titulo: String, mensaje: String) {
         AlertDialog.Builder(context)
             .setTitle(titulo)

@@ -17,7 +17,6 @@ data class MMateria(var id: Int = 0, var nombre: String = "") {
         return newRowId != -1L
     }
 
-    // obtener(id: int): MMateria
     companion object {
         fun obtener(context: Context, id: Int): MMateria? {
             val dbh = Database(context)
@@ -38,7 +37,6 @@ data class MMateria(var id: Int = 0, var nombre: String = "") {
             return materia
         }
 
-        // listar(): List
         fun listar(context: Context): List<MMateria> {
             val list = mutableListOf<MMateria>()
             val dbh = Database(context)
@@ -56,7 +54,6 @@ data class MMateria(var id: Int = 0, var nombre: String = "") {
         }
     }
 
-    // actualizar(): boolean
     fun actualizar(context: Context): Boolean {
         val dbh = Database(context)
         val db = dbh.writableDatabase
@@ -68,7 +65,6 @@ data class MMateria(var id: Int = 0, var nombre: String = "") {
         return rows > 0
     }
 
-    // eliminar(): boolean
     fun eliminar(context: Context): Boolean {
         val dbh = Database(context)
         val db = dbh.writableDatabase

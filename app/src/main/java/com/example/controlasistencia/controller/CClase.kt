@@ -63,7 +63,7 @@ class CClaseController(
                 "Activo"
             }
         } catch (e: Exception) {
-            "Activo" // Estado por defecto si hay error en el formato
+            "Activo"
         }
     }
     

@@ -14,7 +14,6 @@ class Database(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME, null
         const val TABLE_CLASE = "clase"
         const val TABLE_ASISTENCIA = "asistencia"
 
-        // SQL provided by user - must be exact
         const val SQL_CREATE_MATERIA = """
             CREATE TABLE materia (
                 id INT PRIMARY KEY AUTO_INCREMENT,
@@ -67,8 +66,7 @@ class Database(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME, null
     }
 
     override fun onCreate(db: SQLiteDatabase) {
-        // SQLite doesn't support AUTO_INCREMENT or INT PRIMARY KEY AUTO_INCREMENT syntax the same way as MySQL
-        // We'll create equivalent SQLite table but keep the user's SQL text in the source as required.
+
         val sqliteCreateMateria = """
             CREATE TABLE $TABLE_MATERIA (
                 id INTEGER PRIMARY KEY AUTOINCREMENT,

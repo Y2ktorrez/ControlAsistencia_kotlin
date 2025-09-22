@@ -5,8 +5,7 @@ import android.content.Context
 import com.example.controlasistencia.Database
 
 data class MGrupo(var id: Int = 0, var nombre: String = "", var id_materia: Int = 0) {
-    
-    // insertar(): boolean
+
     fun insertar(context: Context): Boolean {
         val dbh = Database(context)
         val db = dbh.writableDatabase
@@ -19,7 +18,6 @@ data class MGrupo(var id: Int = 0, var nombre: String = "", var id_materia: Int 
         return newRowId != -1L
     }
 
-    // obtener(id: int): MGrupo
     companion object {
         fun obtener(context: Context, id: Int): MGrupo? {
             val dbh = Database(context)
@@ -44,7 +42,6 @@ data class MGrupo(var id: Int = 0, var nombre: String = "", var id_materia: Int 
             return grupo
         }
 
-        // listar(): List
         fun listar(context: Context): List<MGrupo> {
             val list = mutableListOf<MGrupo>()
             val dbh = Database(context)
@@ -68,8 +65,7 @@ data class MGrupo(var id: Int = 0, var nombre: String = "", var id_materia: Int 
             db.close()
             return list
         }
-        
-        // obtenerMateria(): void - Obtiene el nombre de la materia asociada
+
         fun obtenerMateria(context: Context, idMateria: Int): String {
             val dbh = Database(context)
             val db = dbh.readableDatabase
@@ -90,7 +86,6 @@ data class MGrupo(var id: Int = 0, var nombre: String = "", var id_materia: Int 
         }
     }
 
-    // actualizar(): boolean
     fun actualizar(context: Context): Boolean {
         val dbh = Database(context)
         val db = dbh.writableDatabase
@@ -103,7 +98,6 @@ data class MGrupo(var id: Int = 0, var nombre: String = "", var id_materia: Int 
         return rows > 0
     }
 
-    // eliminar(): boolean
     fun eliminar(context: Context): Boolean {
         val dbh = Database(context)
         val db = dbh.writableDatabase

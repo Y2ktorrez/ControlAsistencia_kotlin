@@ -12,7 +12,6 @@ data class MAsistencia(
     var id_clase: Int = 0,
     var id_estudiante: String = ""
 ) {
-    // insertar(): boolean
     fun insertar(context: Context): Boolean {
         val dbh = Database(context)
         val db = dbh.writableDatabase
@@ -28,7 +27,6 @@ data class MAsistencia(
         return newRowId != -1L
     }
 
-    // obtener(id: int): MAsistencia
     companion object {
         fun obtener(context: Context, id: Int): MAsistencia? {
             val dbh = Database(context)
@@ -56,7 +54,6 @@ data class MAsistencia(
             return asistencia
         }
 
-        // listar(): List<MAsistencia>
         fun listar(context: Context): List<MAsistencia> {
             val list = mutableListOf<MAsistencia>()
             val dbh = Database(context)
@@ -84,7 +81,6 @@ data class MAsistencia(
             return list
         }
 
-        // obtenerClase(): String - Obtiene información de la clase asociada
         fun obtenerClase(context: Context, idClase: Int): String {
             val dbh = Database(context)
             val db = dbh.readableDatabase
@@ -107,7 +103,6 @@ data class MAsistencia(
             return infoClase
         }
 
-        // obtenerEstudiante(): String - Obtiene información del estudiante
         fun obtenerEstudiante(context: Context, registro: String): String {
             val dbh = Database(context)
             val db = dbh.readableDatabase
@@ -131,7 +126,6 @@ data class MAsistencia(
         }
     }
 
-    // actualizar(): boolean
     fun actualizar(context: Context): Boolean {
         val dbh = Database(context)
         val db = dbh.writableDatabase
@@ -147,7 +141,6 @@ data class MAsistencia(
         return rows > 0
     }
 
-    // eliminar(): boolean
     fun eliminar(context: Context): Boolean {
         val dbh = Database(context)
         val db = dbh.writableDatabase

@@ -10,7 +10,6 @@ data class MAlumno(
     var apellidom: String = "",
     var nombre: String = ""
 ) {
-    // insertar(): boolean
     fun insertar(context: Context): Boolean {
         val dbh = Database(context)
         val db = dbh.writableDatabase
@@ -25,7 +24,6 @@ data class MAlumno(
         return newRowId != -1L
     }
 
-    // obtener(registro: String): MAlumno
     companion object {
         fun obtener(context: Context, registro: String): MAlumno? {
             val dbh = Database(context)
@@ -51,7 +49,6 @@ data class MAlumno(
             return alumno
         }
 
-        // listar(): List<MAlumno>
         fun listar(context: Context): List<MAlumno> {
             val list = mutableListOf<MAlumno>()
             val dbh = Database(context)
@@ -74,7 +71,6 @@ data class MAlumno(
         }
     }
 
-    // actualizar(): boolean
     fun actualizar(context: Context): Boolean {
         val dbh = Database(context)
         val db = dbh.writableDatabase
@@ -88,7 +84,6 @@ data class MAlumno(
         return rows > 0
     }
 
-    // eliminar(): boolean
     fun eliminar(context: Context): Boolean {
         val dbh = Database(context)
         val db = dbh.writableDatabase
